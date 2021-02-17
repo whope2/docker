@@ -1,6 +1,10 @@
 FROM python:3.9-alpine
+RUN mkdir dailyapp
+RUN cd dailyapp
+Add requirements.txt /dailyapp
 WORKDIR /dailyapp
-Add . /dailyapp
 RUN pip install -r requirements.txt
-WORKDIR /dailyapp/TransferApp
+RUN mkdir DailyApp
+Add DailyApp /dailyapp/DailyApp
+WORKDIR /dailyapp/DailyApp
 CMD ["python","transfer.py"]
